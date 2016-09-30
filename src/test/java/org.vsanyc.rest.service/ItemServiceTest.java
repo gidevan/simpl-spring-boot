@@ -11,6 +11,7 @@ import java.util.List;
 public class ItemServiceTest {
 
     private static final int TEST_ID = 0;
+    private static final int WRONG_TEST_ID = 110;
 
     private ItemService itemService = new ItemServiceImpl();
 
@@ -24,5 +25,11 @@ public class ItemServiceTest {
     public void testGetById() {
         Item item = itemService.getIemById(TEST_ID);
         Assert.assertNotNull(item);
+    }
+
+    @Test
+    public void testGetByWrongId() {
+        Item item = itemService.getIemById(WRONG_TEST_ID);
+        Assert.assertNull(item);
     }
 }
