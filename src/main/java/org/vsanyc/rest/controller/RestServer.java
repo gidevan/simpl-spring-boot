@@ -22,6 +22,11 @@ public class RestServer {
         return itemService.getItems();
     }
 
+    @RequestMapping("/items/db")
+    public List<Item> getDbItems() {
+        return itemService.getDBItems();
+    }
+
     @CrossOrigin("http://localhost:8080")
     @RequestMapping("/hello")
     public String hello() {
