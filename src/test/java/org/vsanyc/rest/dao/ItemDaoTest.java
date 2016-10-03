@@ -11,6 +11,7 @@ import java.util.List;
  */
 public class ItemDaoTest {
     private static final int EXPECTED_SIZE = 3;
+    private static final String NAME_PREFIX = "name";
     private ItemDao itemDao = new ItemDaoImpl();
 
     @Test
@@ -19,6 +20,15 @@ public class ItemDaoTest {
         List<Item> items = itemDao.getItems();
         Assert.assertFalse(items.isEmpty());
         Assert.assertEquals(items.size(), EXPECTED_SIZE);
+    }
+
+    @Test
+    public void testAssertNames() {
+        System.out.println("Assert names");
+        List<Item> items = itemDao.getItems();
+        for(Item item : items) {
+            Assert.assertTrue(item.getName().contains(NAME_PREFIX));
+        }
     }
 
 }
