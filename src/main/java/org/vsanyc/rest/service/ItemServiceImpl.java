@@ -1,6 +1,8 @@
 package org.vsanyc.rest.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.vsanyc.rest.dao.ItemDao;
 import org.vsanyc.rest.domain.Item;
 
 import javax.annotation.PostConstruct;
@@ -18,10 +20,13 @@ public class ItemServiceImpl implements ItemService {
     private static final String DESCRIPTION_PREFIX = "Description: ";
 
     private static List<Item> items = new ArrayList<>();
+    @Autowired
+    private ItemDao itemDao;
 
     public ItemServiceImpl() {
         initItems();
     }
+
 
     @PostConstruct
     private void initItems() {
@@ -48,5 +53,10 @@ public class ItemServiceImpl implements ItemService {
             }
         }
         return null;
+    }
+
+    @Override
+    public List<Item> getDBItems() {
+        return itemDao.getItems();
     }
 }

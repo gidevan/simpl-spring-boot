@@ -14,4 +14,6 @@ public interface ItemService {
     List<Item> getOddItems();
 
     Item getIemById(long id);
+
+    List<Item> getDBItems();
 }
