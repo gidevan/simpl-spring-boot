@@ -1,0 +1,11 @@
+machine:
+  services:
+    - docker
+dependencies:
+  override:
+    - docker info
+    - docker build --rm=false -t mysql/test-db ./docker-mysql
+
+test:
+  override:
+    - docker run -d -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=mypassword" mysql/test-db; sleep 10
