@@ -4,7 +4,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build --rm=false -t mysql/test-db ./docker-mysql
+    - docker build -t mysql/test-db ./docker-mysql
 
 test:
   override:
