@@ -1,4 +1,6 @@
 machine:
+  post:
+    - sudo service mysql stop
   services:
     - docker
 dependencies:
