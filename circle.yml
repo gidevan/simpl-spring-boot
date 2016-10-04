@@ -11,3 +11,4 @@ dependencies:
 test:
   override:
     - docker run -d -p 3306:3306 --env="MYSQL_ROOT_PASSWORD=mypassword" mysql/test-db; sleep 10
+    - mvn clean test
