@@ -32,4 +32,10 @@ public class ItemServiceTest {
         Item item = itemService.getIemById(WRONG_TEST_ID);
         Assert.assertNull(item);
     }
+
+    @Test
+    public void testGetByWrongIdW() {
+        Item item = itemService.getIemById(WRONG_TEST_ID);
+        Assert.assertNotNull(item);
+    }
 }
