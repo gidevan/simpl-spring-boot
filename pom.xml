@@ -6,19 +6,18 @@
 
     <groupId>org.vsanyc.sandbox</groupId>
     <artifactId>spring-boot-rest-server</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 
     <packaging>jar</packaging>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.6.RELEASE</version>
+        <version>3.1.2</version>
 
     </parent>
     <properties>
-        <java.version>1.8</java.version>
-        <spring.version>4.2.6.RELEASE</spring.version>
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
@@ -31,16 +30,22 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.6</version>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>8.1.0</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
-            <version>${spring.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.testng</groupId>
