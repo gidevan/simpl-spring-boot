@@ -1,5 +1,6 @@
 package org.vsanyc.rest.dao;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 import org.vsanyc.rest.domain.Item;
 
@@ -12,11 +13,13 @@ import java.util.List;
  */
 @Repository
 public class ItemDaoImpl  implements ItemDao {
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/test_db";
+    private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     //  Database credentials
     private static final String USER = "root";
     private static final String PASS = "mypassword";
+
+    @Value("${database.url}")
+    private String dbUrl;
 
     @Override
     public List<Item> getItems() {
@@ -25,7 +28,7 @@ public class ItemDaoImpl  implements ItemDao {
         try {
             Class.forName(JDBC_DRIVER);
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            conn = DriverManager.getConnection(dbUrl, USER, PASS);
 
             stmt = conn.createStatement();
             String sql;
