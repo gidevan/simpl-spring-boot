@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   mysql-8.1.0:
-    image: docker-mysql-8.1.0-v1
+    image: vsanyc/docker-mysql-8.1.0-v1
     build:
       context: .
       dockerfile: ./docker-mysql/Dockerfile
@@ -13,7 +13,7 @@ services:
     networks:
       - simple-spring-boot-rest-mysql
   spring-boot-rest:
-    image: spring-boot-rest-v1
+    image: vsanyc/spring-boot-rest-v1
     build:
       context: .
       dockerfile: Dockerfile
